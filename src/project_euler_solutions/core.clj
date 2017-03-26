@@ -26,10 +26,18 @@
   (nth (filter is-prime? (drop 2 (range))) (dec i-th)))
 
 
+;; Function specs
+(s/def ::check-pos-int (s/and (s/cat :arg int?) #(pos? (:arg %))))
+
 (s/fdef project-euler-solutions.core/largest-palindrome
-  :args (s/and (s/cat :arg int?) #(pos? (:arg %)))
+  :args ::check-pos-int
   :ret int?)
 (stest/instrument `largest-palindrome)
+
+(s/fdef project-euler-solutions.core/find-prime
+  :args ::check-pos-int
+  :ret #(.isProbablePrime (new java.math.BigInteger (str %)) 100))
+(stest/instrument `find-prime)
 
 
 (defn -main [& args]
