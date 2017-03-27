@@ -5,10 +5,15 @@
 
 
 ;; Problem 4 - Largest palindrome product
-(defn is-palindrome? [num]
+(defn is-palindrome?
+  "Returns true if 'num' is a palindrome."
+  [num]
   (= (str num) (clojure.string/reverse (str num))))
 
-(defn largest-palindrome [digit]
+(defn largest-palindrome
+  "Returns the largest palindrome made from the product of two
+  'digit'-digit numbers."
+  [digit]
   (let [min-product (math/expt 10 (dec digit))
         max-product (dec (* min-product 10))
         all-elements (range min-product (inc max-product))]
@@ -17,12 +22,16 @@
                    (for [x1 all-elements x2 all-elements] (* x1 x2))))))
 
 ;; Problem 7 - 10001st prime
-(defn is-prime? [num]
+(defn is-prime?
+  "Returns true if 'num' is prime."
+  [num]
   (reduce (fn [bool current] (and bool (not= 0 (mod num current))))
           true
           (range 2 (inc (math/floor (math/sqrt num))))))
 
-(defn find-prime [i-th]
+(defn find-prime
+  "Returns the 'i-th' prime number."
+  [i-th]
   (nth (filter is-prime? (drop 2 (range))) (dec i-th)))
 
 
