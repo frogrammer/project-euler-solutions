@@ -49,4 +49,6 @@
 
 
 (defn -main [& args]
-  (println (find-prime 10001)))
+  (do
+    (println "Problem 4:" (largest-palindrome 3))
+    (println "Problem 7:" (find-prime 10001))))
