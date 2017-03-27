@@ -1,6 +1,12 @@
 # project-euler-solutions
 
-Solutions to the Project Euler problems
+Solutions to the Project Euler problems.
+
+Type `lein run` to print out the answers.
+
+Solved problems :notebook:
+* Problem 4 - Largest palindrome product
+* Problem 7 - 10001st prime
 
 ## License
 
