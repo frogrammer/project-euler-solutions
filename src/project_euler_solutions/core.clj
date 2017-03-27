@@ -25,9 +25,8 @@
 (defn is-prime?
   "Returns true if 'num' is prime."
   [num]
-  (reduce (fn [bool current] (and bool (not= 0 (mod num current))))
-          true
-          (range 2 (inc (math/floor (math/sqrt num))))))
+  (not (some #(= 0 (mod num %))
+             (range 2 (inc (math/floor (math/sqrt num)))))))
 
 (defn find-prime
   "Returns the 'i-th' prime number."
